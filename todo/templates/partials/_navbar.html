@@ -1,0 +1,44 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-primary sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="#" class="logo" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item active mr-3">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+        </ul>
+        {% if user.is_authenticated %}
+       
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-3">
+                <div class="nav-link">
+                  Hello {{user}}</div></li>
+            <li class="nav-item mr-3">
+                    <a class="nav-link" href="#">My Dashboard</a>
+            </li>     
+            <li class="nav-item mr-3">
+              <a class="nav-link" href="{% url 'logout' %}">
+                <i class="fas fa-user-plus"></i> Logout</a>
+            </li>
+        </ul>
+        {% else%}
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-3">
+            <a class="nav-link" href="{% url 'register' %}">
+              <i class="fas fa-user-plus"></i> Register</a>
+          </li>
+          <li class="nav-item mr-3">
+            <a class="nav-link" href="{% url 'login' %}">
+              <i class="fas fa-sign-in-alt"></i>Login</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>

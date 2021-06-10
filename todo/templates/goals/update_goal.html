@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Update Goal -
+{% endblock title %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center">Update Goal</h1>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <div class="input-group-text" data-toggle="tooltip" data-placement="bottom" title="Marked as completed">
+                    {{goal_edit_form.completed}}
+                </div>
+                {{goal_edit_form.title}}{{goal_edit_form.description}}{{goal_edit_form.target_date}}
+                <button type="submit" class="btn btn-lg btn-info">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
